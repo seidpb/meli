@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#fdf4f6"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="22" fill="#c2507a"/><text x="50" y="60" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="28" fill="#fdf4f6">M</text></svg></template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>body{margin:0;background:#fdf4f6}a{color:#c2507a}a:hover{color:#22335a}input,textarea,button{font:inherit}</style>
+</helmet>
+<div style="background:#fdf4f6;color:#22335a;font-family:'Bricolage Grotesque',sans-serif;min-height:100vh;display:flex;flex-direction:column">
+
+  <div style="position:sticky;top:0;z-index:20;background:#fdf4f6;padding:clamp(10px,1.6vw,20px)">
+    <div style="border:2px dashed #8fb0dc;border-radius:20px;padding:12px clamp(14px,3vw,36px);display:flex;justify-content:space-between;align-items:center;gap:16px;background:#fdf4f6">
+      <div onClick="{{ goHome }}" style="display:flex;align-items:center;gap:12px;cursor:pointer"><span style="width:36px;height:36px;border-radius:50%;background:#c2507a;display:flex;align-items:center;justify-content:center;color:#fdf4f6;font-family:'Caveat',cursive;font-size:24px;font-weight:700">M</span><span style="font-weight:700;font-size:24px;letter-spacing:-.01em">Meli</span></div>
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;gap:6px;font-size:15px;font-weight:600">
+          <span onClick="{{ goHome }}" style="padding:10px 18px;border-radius:999px;cursor:pointer;background:{{ nav.home.bg }};color:{{ nav.home.fg }}">Početna</span>
+          <span onClick="{{ goAbout }}" style="padding:10px 18px;border-radius:999px;cursor:pointer;background:{{ nav.about.bg }};color:{{ nav.about.fg }}">O meni</span>
+          <span onClick="{{ goGallery }}" style="padding:10px 18px;border-radius:999px;cursor:pointer;background:{{ nav.gallery.bg }};color:{{ nav.gallery.fg }}">Galerija</span>
+          <span onClick="{{ goContact }}" style="margin-left:8px;padding:10px 20px;border-radius:14px;cursor:pointer;background:#c2507a;color:#fff;font-weight:700;outline:2px dashed #c2507a;outline-offset:3px" style-hover="background:#a83f66;outline-color:#a83f66">Kontakt</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ toggleMenu }}" style="background:#22335a;color:#fdf4f6;border:0;padding:10px 16px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;min-height:44px">{{ menuLabel }}</button>
+      </sc-if>
+    </div>
+    <sc-if value="{{ menuVisible }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-top:8px;border:2px dashed #8fb0dc;border-radius:20px;background:#fff;padding:8px;display:flex;flex-direction:column;font-weight:600;font-size:18px">
+        <span onClick="{{ goHome }}" style="padding:14px 16px;border-radius:14px;cursor:pointer;background:{{ nav.home.bg }};color:{{ nav.home.fg }}">Početna</span>
+        <span onClick="{{ goAbout }}" style="padding:14px 16px;border-radius:14px;cursor:pointer;background:{{ nav.about.bg }};color:{{ nav.about.fg }}">O meni</span>
+        <span onClick="{{ goGallery }}" style="padding:14px 16px;border-radius:14px;cursor:pointer;background:{{ nav.gallery.bg }};color:{{ nav.gallery.fg }}">Galerija</span>
+        <span onClick="{{ goContact }}" style="padding:14px 16px;border-radius:14px;cursor:pointer;background:{{ nav.contact.bg }};color:{{ nav.contact.fg }}">Kontakt</span>
+      </div>
+    </sc-if>
+  </div>
+
+  <div style="flex:1">
+  <!-- ================= POČETNA ================= -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(24px,4vw,48px);align-items:center;padding:clamp(24px,4vw,56px) clamp(20px,5.5vw,72px) clamp(48px,6vw,88px);max-width:1280px;margin:0 auto;box-sizing:border-box">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="font-family:'Caveat',cursive;font-size:clamp(24px,2.5vw,32px);color:#c2507a;transform:rotate(-2deg);transform-origin:left">idealan poklon za rođenje</div>
+        <h1 style="margin:0;font-weight:700;font-size:clamp(42px,6.5vw,84px);line-height:.98;letter-spacing:-.03em;text-wrap:pretty"><span style="background:#f7c6d4;padding:0 10px;border-radius:14px">Bezbedna</span> prva igračka za tvoju bebu</h1>
+        <p style="margin:0;font-size:clamp(16px,1.5vw,19px);line-height:1.6;max-width:500px;color:#4a5670">Ručno heklane amigurumi lutke za bebe i malu decu, mekane, bezbedne i napravljene da se grle i glođu.</p>
+        <div style="display:flex;gap:14px;margin-top:6px"><button onClick="{{ goGallery }}" style="background:#c2507a;color:#fff;border:0;padding:16px 28px;border-radius:16px;font-weight:700;font-size:16px;outline:2px dashed #c2507a;outline-offset:4px;cursor:pointer" style-hover="background:#a83f66;outline-color:#a83f66">Pogledaj lutke</button></div>
+      </div>
+      <div style="position:relative;width:100%;max-width:560px;aspect-ratio:1/1.05;justify-self:center">
+        <div style="position:absolute;left:-6%;top:6%;width:70%;aspect-ratio:1/1;border-radius:50%;background:#dce7f5;filter:blur(2px);pointer-events:none"></div>
+        <div style="position:absolute;right:-8%;bottom:4%;width:58%;aspect-ratio:1/1;border-radius:50%;background:#f7c6d4;opacity:.75;pointer-events:none"></div>
+        <div style="position:absolute;inset:8% 4% 2% 10%;border-radius:40%;background:radial-gradient(closest-side,rgba(34,51,90,.14),rgba(34,51,90,0));filter:blur(24px);pointer-events:none"></div>
+        <div style="position:absolute;left:6%;top:2%;width:60%;background:#fff;padding:3% 3% 12%;box-shadow:0 2px 4px rgba(34,51,90,.08),0 18px 40px rgba(34,51,90,.22),0 40px 80px -20px rgba(194,80,122,.25);transform:rotate(-5deg);box-sizing:border-box"><div style="aspect-ratio:1/1.06"><img src="./slike/p2-c-p1.webp" alt="Lutka 1" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:3%;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:clamp(20px,2vw,26px)">Naziv lutke</div></div>
+        <div style="position:absolute;right:0;top:28%;width:50%;background:#fff;padding:3% 3% 12%;box-shadow:0 2px 4px rgba(34,51,90,.08),0 18px 40px rgba(34,51,90,.22),0 40px 80px -20px rgba(194,80,122,.25);transform:rotate(6deg);box-sizing:border-box"><div style="aspect-ratio:1/1.04"><img src="./slike/p2-c-p2.webp" alt="Lutka 2" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:3%;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:clamp(18px,1.9vw,24px)">Naziv lutke</div></div>
+        <div style="position:absolute;left:30%;top:-1%;width:16%;height:28px;background:rgba(247,198,212,.85);transform:rotate(-8deg)"></div>
+      </div>
+    </div>
+    <div style="padding:0 clamp(20px,5.5vw,72px) clamp(56px,7vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;max-width:1280px;margin:0 auto;box-sizing:border-box">
+      <div style="border:2px dashed #8fb0dc;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:10px;background:#fff"><div style="font-family:'Caveat',cursive;font-size:22px;color:#c2507a">bezbedno</div><div style="font-weight:700;font-size:24px">Neškodljivi materijali</div><div style="font-size:16px;line-height:1.6;color:#4a5670">Pamučni konac i punjenje namenjeno igračkama.</div></div>
+      <div style="border:2px dashed #8fb0dc;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:10px;background:#fff"><div style="font-family:'Caveat',cursive;font-size:22px;color:#c2507a">od 0 do 100</div><div style="font-weight:700;font-size:24px">Za sve uzraste</div><div style="font-size:16px;line-height:1.6;color:#4a5670">Bez sitnih delova koji mogu da se odvoje.</div></div>
+      <div style="border:2px dashed #8fb0dc;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:10px;background:#fff"><div style="font-family:'Caveat',cursive;font-size:22px;color:#c2507a">samo jedna takva</div><div style="font-weight:700;font-size:24px">Ručni rad</div><div style="font-size:16px;line-height:1.6;color:#4a5670">Heklana ručno, jedna po jedna.</div></div>
+    </div>
+    <div style="background:#dce7f5">
+      <div style="padding:clamp(56px,7vw,88px) clamp(20px,5.5vw,72px);display:flex;flex-direction:column;gap:40px;max-width:1280px;margin:0 auto;box-sizing:border-box">
+        <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap"><div style="display:flex;flex-direction:column;gap:4px"><div style="font-family:'Caveat',cursive;font-size:28px;color:#c2507a">upoznajte ekipu</div><h2 style="margin:0;font-weight:700;font-size:clamp(36px,4vw,52px);letter-spacing:-.02em">Galerija</h2></div><button onClick="{{ goGallery }}" style="font-weight:700;background:#22335a;color:#fdf4f6;border:0;padding:12px 22px;border-radius:999px;cursor:pointer;min-height:44px" style-hover="background:#c2507a">Sve lutke →</button></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:clamp(20px,2.6vw,36px)">
+          <div style="background:#fff;padding:5% 5% 44px;position:relative;transform:rotate(-2deg);box-shadow:0 6px 18px rgba(34,51,90,.14)"><div style="aspect-ratio:1/1"><img src="./slike/p2-c-g1.webp" alt="Lutka" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:8px;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:22px">Naziv lutke</div></div>
+          <div style="background:#fff;padding:5% 5% 44px;position:relative;transform:rotate(1.5deg);box-shadow:0 6px 18px rgba(34,51,90,.14)"><div style="aspect-ratio:1/1"><img src="./slike/p2-c-g2.webp" alt="Lutka" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:8px;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:22px">Naziv lutke</div></div>
+          <div style="background:#fff;padding:5% 5% 44px;position:relative;transform:rotate(-1deg);box-shadow:0 6px 18px rgba(34,51,90,.14)"><div style="aspect-ratio:1/1"><img src="./slike/p2-c-g3.webp" alt="Lutka" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:8px;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:22px">Naziv lutke</div></div>
+          <div style="background:#fff;padding:5% 5% 44px;position:relative;transform:rotate(2.5deg);box-shadow:0 6px 18px rgba(34,51,90,.14)"><div style="aspect-ratio:1/1"><img src="./slike/p2-c-g4.webp" alt="Lutka" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:8px;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:22px">Naziv lutke</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="background:#fdf4f6">
+      <div style="padding:clamp(56px,7vw,88px) clamp(20px,5.5vw,72px);display:flex;flex-direction:column;gap:44px;max-width:1280px;margin:0 auto;box-sizing:border-box">
+        <div style="display:flex;flex-direction:column;gap:4px"><div style="font-family:'Caveat',cursive;font-size:28px;color:#c2507a">od klupka do zagrljaja</div><h2 style="margin:0;font-weight:700;font-size:clamp(34px,4vw,52px);letter-spacing:-.02em">Kako nastaje lutka</h2></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:28px">
+          <div style="background:#fff;border-radius:20px;padding:16px 16px 28px;display:flex;flex-direction:column;gap:14px"><div style="aspect-ratio:4/3"><img src="./slike/p3-step1.webp" alt="Klupka i materijali" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:12px"></div><div style="display:flex;gap:12px;align-items:baseline;padding:0 8px"><span style="font-family:'Caveat',cursive;font-size:30px;color:#c2507a">1</span><div style="display:flex;flex-direction:column;gap:6px"><div style="font-weight:700;font-size:22px">Biram materijal</div><div style="font-size:16px;line-height:1.55;color:#4a5670">Pamučni konac i punjenje namenjeno igračkama.</div></div></div></div>
+          <div style="background:#fff;border-radius:20px;padding:16px 16px 28px;display:flex;flex-direction:column;gap:14px"><div style="aspect-ratio:4/3"><img src="./slike/p3-step2.webp" alt="Heklanje u toku" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:12px"></div><div style="display:flex;gap:12px;align-items:baseline;padding:0 8px"><span style="font-family:'Caveat',cursive;font-size:30px;color:#c2507a">2</span><div style="display:flex;flex-direction:column;gap:6px"><div style="font-weight:700;font-size:22px">Heklam ručno</div><div style="font-size:16px;line-height:1.55;color:#4a5670">Jedna lutka, jedna po jedna očica.</div></div></div></div>
+          <div style="background:#fff;border-radius:20px;padding:16px 16px 28px;display:flex;flex-direction:column;gap:14px"><div style="aspect-ratio:4/3"><img src="./slike/p3-step3.webp" alt="Gotova lutka" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:12px"></div><div style="display:flex;gap:12px;align-items:baseline;padding:0 8px"><span style="font-family:'Caveat',cursive;font-size:30px;color:#c2507a">3</span><div style="display:flex;flex-direction:column;gap:6px"><div style="font-weight:700;font-size:22px">Proveravam svaki šav</div><div style="font-size:16px;line-height:1.55;color:#4a5670">Bez sitnih delova koji mogu da se odvoje.</div></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(32px,5vw,64px);align-items:center;padding:clamp(56px,7vw,96px) clamp(20px,5.5vw,72px);max-width:1280px;margin:0 auto;box-sizing:border-box">
+      <div style="width:min(340px,100%);aspect-ratio:1/1;justify-self:center"><img src="./slike/p2-c-about.webp" alt="Portret autorke" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+      <div style="display:flex;flex-direction:column;gap:20px;grid-column:span 2;min-width:min(100%,300px)">
+        <div style="font-family:'Caveat',cursive;font-size:30px;color:#c2507a">zdravo, ja sam Melita</div>
+        <h2 style="margin:0;font-weight:700;font-size:clamp(32px,3.8vw,48px);line-height:1.08;letter-spacing:-.02em">Od Starog Priboja do malenih ručica širom sveta.</h2>
+        <p style="margin:0;font-size:18px;line-height:1.65;color:#4a5670;max-width:600px">Pletem od detinjstva, a među prvima u Srbiji sam savladala amigurumi tehniku. Danas svaku lutku pravim od neškodljivih materijala, za bebe i malu decu.</p>
+        <span onClick="{{ goAbout }}" style="font-weight:700;color:#c2507a;text-decoration:underline;text-decoration-style:dashed;text-underline-offset:6px;cursor:pointer;align-self:start" style-hover="color:#22335a">Moja priča</span>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ================= O MENI ================= -->
+  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(32px,5vw,72px);align-items:center;padding:clamp(24px,4vw,56px) clamp(20px,5.5vw,72px) clamp(48px,6vw,88px);max-width:1280px;margin:0 auto;box-sizing:border-box">
+      <div style="position:relative;width:min(420px,100%);aspect-ratio:1/1;justify-self:center">
+        <img src="./slike/p3-about-hero.webp" alt="Portret autorke" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:50%">
+        <div style="position:absolute;right:-6px;bottom:8%;background:#f7c6d4;padding:10px 20px;border-radius:999px;font-family:'Caveat',cursive;font-size:26px;transform:rotate(-6deg);pointer-events:none">to sam ja!</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div style="font-family:'Caveat',cursive;font-size:clamp(26px,2.5vw,32px);color:#c2507a">zdravo, ja sam Melita</div>
+        <h1 style="margin:0;font-weight:700;font-size:clamp(38px,5.3vw,68px);line-height:1;letter-spacing:-.03em;text-wrap:pretty">Heklam lutke koje smeju da se grle, žvaću i vuku za uši.</h1>
+        <p style="margin:0;font-size:clamp(16px,1.5vw,19px);line-height:1.65;color:#4a5670;max-width:580px">Pribojka sam i među prvima u Srbiji sam savladala japansku amigurumi tehniku. Danas pravim lutke za bebe i malu decu širom sveta.</p>
+      </div>
+    </div>
+    <div style="padding:0 clamp(20px,5.5vw,72px) clamp(56px,7vw,88px);max-width:1080px;margin:0 auto;box-sizing:border-box;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,48px)">
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="font-family:'Caveat',cursive;font-size:26px;color:#c2507a">Stari Priboj, sedamdesete</div><p style="margin:0;font-size:17px;line-height:1.65;color:#4a5670">Kao i sve devojčice tada, naučila sam da pletem još kao dete. Prvo su to bile kapice, šalovi, trakice za kosu i patikice za bebe, a ljubav prema ručnom radu je rasla s godinama.</p></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="font-family:'Caveat',cursive;font-size:26px;color:#c2507a">prva lutka</div><p style="margin:0;font-size:17px;line-height:1.65;color:#4a5670">Kad su amigurumi igračke preplavile internet, rešila sam da probam. Moja prva lutka je bila neuspeh kome se cela kuća smejala, ali nisam odustala. Sate i sate sam učila, a danas pravim i sopstvene šeme.</p></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="font-family:'Caveat',cursive;font-size:26px;color:#c2507a">danas</div><p style="margin:0;font-size:17px;line-height:1.65;color:#4a5670">Pored meda i zeka pravim i likove iz crtanih filmova. Mnogo igračaka sam poklonila, među njima i meduze za prevremeno rođene bebe: pipci ih podsećaju na pupčanu vrpcu i daju im osećaj sigurnosti.</p></div>
+    </div>
+    <div style="padding:0 clamp(20px,5.5vw,72px) clamp(56px,7vw,88px);max-width:1080px;margin:0 auto;box-sizing:border-box;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;flex-direction:column;gap:4px"><div style="font-family:'Caveat',cursive;font-size:28px;color:#c2507a">pogledaj kako je sve počelo</div><h2 style="margin:0;font-weight:700;font-size:clamp(32px,3.8vw,48px);letter-spacing:-.02em">Moja priča</h2></div>
+      <div style="border:2px dashed #8fb0dc;border-radius:24px;padding:10px;background:#fff">
+        <div style="position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#22335a">
+          <sc-if value="{{ videoIdle }}" hint-placeholder-val="{{ true }}">
+            <div onClick="{{ playVideo }}" style="position:absolute;inset:0;cursor:pointer;display:flex;align-items:center;justify-content:center">
+              <div style="position:absolute;inset:0;background:#dce7f5"></div>
+              <img src="./assets/meli-portret.jpg" alt="Meli za stolom sa klupcima vune" style="position:absolute;right:0;top:0;width:58%;height:100%;object-fit:cover;object-position:50% 25%">
+              <div style="position:absolute;right:0;top:0;width:58%;height:100%;background:linear-gradient(90deg,#dce7f5 0%,rgba(220,231,245,0) 30%)"></div>
+              <div style="position:absolute;left:5%;top:9%;display:flex;flex-direction:column;gap:2px;max-width:44%">
+                <div style="font-family:'Caveat',cursive;font-size:clamp(20px,3vw,34px);color:#c2507a;transform:rotate(-3deg);transform-origin:left">upoznaj Meli</div>
+              </div>
+              <div style="position:absolute;left:5%;bottom:8%;width:19%;background:#fff;padding:1.2% 1.2% 3.6%;box-shadow:0 8px 20px rgba(34,51,90,.22);transform:rotate(-7deg)"><img src="./assets/lutka-a.jpg" alt="Heklani meda" style="display:block;width:100%;aspect-ratio:1/1.1;object-fit:cover"></div>
+              <div style="position:absolute;left:22%;bottom:5%;width:17%;background:#fff;padding:1.2% 1.2% 3.6%;box-shadow:0 8px 20px rgba(34,51,90,.22);transform:rotate(6deg)"><img src="./assets/lutka-b.jpg" alt="Heklani lav" style="display:block;width:100%;aspect-ratio:1/1.1;object-fit:cover"></div>
+              <div style="position:absolute;left:14%;bottom:29%;width:8%;height:4%;background:rgba(247,198,212,.9);transform:rotate(-12deg)"></div>
+              <div style="position:absolute;left:58%;top:50%;transform:translate(-50%,-50%);width:clamp(56px,9vw,96px);height:clamp(56px,9vw,96px);border-radius:50%;background:#c2507a;display:flex;align-items:center;justify-content:center;outline:2px dashed #fff;outline-offset:6px;box-shadow:0 10px 30px rgba(34,51,90,.35)" style-hover="background:#a83f66"><div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:23px solid #fff;margin-left:5px"></div></div>
+              <div style="position:absolute;right:4%;bottom:7%;background:#fdf4f6;color:#22335a;padding:6px 16px;border-radius:999px;font-family:'Caveat',cursive;font-size:clamp(18px,2vw,24px);transform:rotate(-3deg);box-shadow:0 4px 12px rgba(34,51,90,.18)">klikni i pusti ♥</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ videoPlaying }}" hint-placeholder-val="{{ false }}">
+          <iframe src="https://www.youtube.com/embed/XarH30mCB2Q?rel=0&amp;playsinline=1&amp;autoplay=1" title="Moja priča" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="true"></iframe>
+          </sc-if>
+        </div>
+      </div>
+      <a href="https://www.youtube.com/watch?v=XarH30mCB2Q" target="_blank" rel="noopener" style="align-self:start;font-weight:700;color:#c2507a;text-decoration:underline;text-decoration-style:dashed;text-underline-offset:6px" style-hover="color:#22335a">Ne vidiš video? Pogledaj ga na YouTube-u ↗</a>
+    </div>
+    
+    <div style="padding:clamp(56px,7vw,88px) clamp(20px,5.5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(32px,5vw,64px);align-items:center;max-width:1280px;margin:0 auto;box-sizing:border-box">
+      <p style="margin:0;font-weight:700;font-size:clamp(28px,3.2vw,40px);line-height:1.2;letter-spacing:-.02em">Ručno pravljene lutke od neškodljivih materijala i sa njima se mogu igrati deca svih uzrasta.</p>
+      <div style="border:2px dashed #8fb0dc;border-radius:20px;padding:32px;background:#fff;display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:'Caveat',cursive;font-size:24px;color:#c2507a">nega lutke</div>
+        <div style="font-size:17px;line-height:1.6;color:#4a5670">Ovde ide uputstvo za pranje i održavanje lutke.</div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ================= GALERIJA ================= -->
+  <sc-if value="{{ isGallery }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:1280px;margin:0 auto;box-sizing:border-box;padding:clamp(24px,4vw,48px) clamp(20px,5.5vw,72px) clamp(56px,7vw,96px);display:flex;flex-direction:column;gap:clamp(28px,4vw,48px)">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="font-family:'Caveat',cursive;font-size:clamp(24px,2.4vw,30px);color:#c2507a">upoznajte ekipu</div><h1 style="margin:0;font-weight:700;font-size:clamp(44px,6.2vw,80px);line-height:1;letter-spacing:-.03em">Galerija</h1></div>
+        <div style="display:flex;gap:10px;font-size:15px;font-weight:600;flex-wrap:wrap">
+          <button onClick="{{ fAll }}" style="border:2px dashed {{ chip.all.bd }};background:{{ chip.all.bg }};color:{{ chip.all.fg }};padding:9px 18px;border-radius:999px;font-weight:600;cursor:pointer;min-height:44px">Sve</button>
+          <button onClick="{{ fAnimals }}" style="border:2px dashed {{ chip.animals.bd }};background:{{ chip.animals.bg }};color:{{ chip.animals.fg }};padding:9px 18px;border-radius:999px;font-weight:600;cursor:pointer;min-height:44px">Životinje</button>
+          <button onClick="{{ fDolls }}" style="border:2px dashed {{ chip.dolls.bd }};background:{{ chip.dolls.bg }};color:{{ chip.dolls.fg }};padding:9px 18px;border-radius:999px;font-weight:600;cursor:pointer;min-height:44px">Lutke</button>
+          <button onClick="{{ fBaby }}" style="border:2px dashed {{ chip.baby.bd }};background:{{ chip.baby.bg }};color:{{ chip.baby.fg }};padding:9px 18px;border-radius:999px;font-weight:600;cursor:pointer;min-height:44px">Za bebe</button>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:clamp(22px,3vw,40px) clamp(16px,2.5vw,32px)">
+        <sc-if value="{{ show.g1 }}" hint-placeholder-val="{{ true }}"><div style="background:#fff;padding:5% 5% 48px;position:relative;transform:rotate(-2deg);box-shadow:0 6px 18px rgba(34,51,90,.14)"><div style="aspect-ratio:1/1.05"><img src="./slike/p3-gal1.webp" alt="Lutka" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:24px">Naziv lutke</div></div></sc-if>
+        <sc-if value="{{ show.g2 }}" hint-placeholder-val="{{ true }}"><div style="background:#fff;padding:5% 5% 48px;position:relative;transform:rotate(1.5deg);box-shadow:0 6px 18px rgba(34,51,90,.14)"><div style="aspect-ratio:1/1.05"><img src="./slike/p3-gal2.webp" alt="Lutka" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:24px">Naziv lutke</div></div></sc-if>
+        <sc-if value="{{ show.g3 }}" hint-placeholder-val="{{ true }}"><div style="background:#fff;padding:5% 5% 48px;position:relative;transform:rotate(-1deg);box-shadow:0 6px 18px rgba(34,51,90,.14)"><div style="aspect-ratio:1/1.05"><img src="./slike/p3-gal3.webp" alt="Lutka" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:24px">Naziv lutke</div></div></sc-if>
+        <sc-if value="{{ show.g4 }}" hint-placeholder-val="{{ true }}"><div style="background:#fff;padding:5% 5% 48px;position:relative;transform:rotate(2.5deg);box-shadow:0 6px 18px rgba(34,51,90,.14)"><div style="aspect-ratio:1/1.05"><img src="./slike/p3-gal4.webp" alt="Lutka" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:24px">Naziv lutke</div></div></sc-if>
+        <sc-if value="{{ show.g5 }}" hint-placeholder-val="{{ true }}"><div style="background:#fff;padding:5% 5% 48px;position:relative;transform:rotate(1deg);box-shadow:0 6px 18px rgba(34,51,90,.14)"><div style="aspect-ratio:1/1.05"><img src="./slike/p3-gal5.webp" alt="Lutka" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:24px">Naziv lutke</div></div></sc-if>
+        <sc-if value="{{ show.g6 }}" hint-placeholder-val="{{ true }}"><div style="background:#fff;padding:5% 5% 48px;position:relative;transform:rotate(-2.5deg);box-shadow:0 6px 18px rgba(34,51,90,.14)"><div style="aspect-ratio:1/1.05"><img src="./slike/p3-gal6.webp" alt="Lutka" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:24px">Naziv lutke</div></div></sc-if>
+        <sc-if value="{{ show.g7 }}" hint-placeholder-val="{{ true }}"><div style="background:#fff;padding:5% 5% 48px;position:relative;transform:rotate(2deg);box-shadow:0 6px 18px rgba(34,51,90,.14)"><div style="aspect-ratio:1/1.05"><img src="./slike/p3-gal7.webp" alt="Lutka" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:24px">Naziv lutke</div></div></sc-if>
+        <sc-if value="{{ show.g8 }}" hint-placeholder-val="{{ true }}"><div style="background:#fff;padding:5% 5% 48px;position:relative;transform:rotate(-1.5deg);box-shadow:0 6px 18px rgba(34,51,90,.14)"><div style="aspect-ratio:1/1.05"><img src="./slike/p3-gal8.webp" alt="Lutka" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:0"></div><div style="position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-size:24px">Naziv lutke</div></div></sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ================= KONTAKT ================= -->
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:960px;margin:0 auto;box-sizing:border-box;padding:clamp(32px,5vw,72px) clamp(20px,5.5vw,72px) clamp(56px,7vw,96px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px">
+      <div style="font-family:'Caveat',cursive;font-size:clamp(26px,2.5vw,32px);color:#c2507a;transform:rotate(-2deg)">imaš pitanje?</div>
+      <h1 style="margin:0;font-weight:700;font-size:clamp(42px,6vw,76px);line-height:.98;letter-spacing:-.03em;text-wrap:balance">Piši mi na Instagramu</h1>
+      <p style="margin:0;font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:#4a5670;max-width:520px">Tamo odgovaram na pitanja o lutkama i materijalima, a možeš da vidiš i nove lutke čim nastanu.</p>
+      <a href="{{ igUrl }}" target="_blank" rel="noopener" style="margin-top:12px;display:flex;align-items:center;gap:14px;background:#c2507a;color:#fff;text-decoration:none;padding:20px 36px;border-radius:18px;font-weight:700;font-size:clamp(18px,1.8vw,22px);outline:2px dashed #c2507a;outline-offset:5px" style-hover="background:#a83f66;outline-color:#a83f66;color:#fff">
+        <span style="width:26px;height:26px;border:2.5px solid #fff;border-radius:8px;position:relative;box-sizing:border-box;display:flex;align-items:center;justify-content:center"><span style="width:10px;height:10px;border:2.5px solid #fff;border-radius:50%;box-sizing:border-box"></span></span>
+        Otvori Instagram ↗
+      </a>
+    </div>
+  </sc-if>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <sc-if value="{{ showBand }}" hint-placeholder-val="{{ true }}">
+    <div style="margin:0 clamp(10px,1.6vw,20px) 12px;background:#22335a;color:#fdf4f6;border-radius:20px;padding:clamp(36px,4.5vw,56px) clamp(24px,4vw,52px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;outline:2px dashed #4d628e;outline-offset:-10px">
+      <div style="display:flex;flex-direction:column;gap:6px"><div style="font-family:'Caveat',cursive;font-size:28px;color:#f7c6d4">{{ bandKicker }}</div><div style="font-weight:700;font-size:clamp(28px,3vw,38px);letter-spacing:-.02em">{{ bandTitle }}</div></div>
+      <button onClick="{{ goContact }}" style="background:#f7c6d4;color:#22335a;border:0;padding:16px 28px;border-radius:16px;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#fdf4f6">Kontakt</button>
+    </div>
+  </sc-if>
+  <div style="padding:20px clamp(20px,3vw,40px) 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;color:#4a5670">
+    <span>© 2026 Meli · ručno heklane lutke</span>
+    <div style="display:flex;gap:18px"><a href="{{ igUrl }}" target="_blank" rel="noopener">Instagram</a></div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;instagramUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://www.instagram.com/&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = {
+    page: (typeof localStorage !== 'undefined' && localStorage.getItem('meli-page')) || 'home',
+    w: typeof window !== 'undefined' ? window.innerWidth : 1280,
+    menu: false, filter: 'all',
+    form: { name: '', email: '', msg: '' }, sent: false, error: false
+  };
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  go(page) {
+    try { localStorage.setItem('meli-page', page); } catch (e) {}
+    this.setState({ page, menu: false });
+    window.scrollTo(0, 0);
+  }
+  renderVals() {
+    const { page, w, menu, filter, form, sent, error } = this.state;
+    const isMobile = w < 820;
+    const nav = {};
+    ['home', 'about', 'gallery', 'contact'].forEach(k => {
+      nav[k] = page === k ? { bg: '#22335a', fg: '#fdf4f6' } : { bg: 'transparent', fg: '#22335a' };
+    });
+    const chip = {};
+    ['all', 'animals', 'dolls', 'baby'].forEach(k => {
+      chip[k] = filter === k ? { bg: '#c2507a', fg: '#fff', bd: '#c2507a' } : { bg: 'transparent', fg: '#22335a', bd: '#8fb0dc' };
+    });
+    const cats = { g1: 'animals', g2: 'animals', g3: 'dolls', g4: 'baby', g5: 'animals', g6: 'baby', g7: 'dolls', g8: 'animals' };
+    const show = {};
+    Object.keys(cats).forEach(k => { show[k] = filter === 'all' || cats[k] === filter; });
+    const setF = f => () => this.setState({ filter: f });
+    const setField = k => e => this.setState({ form: { ...this.state.form, [k]: e.target.value }, error: false });
+    const band = page === 'gallery'
+      ? { k: 'svidela ti se neka?', t: 'Piši mi i reci koja.' }
+      : { k: 'imaš pitanje?', t: 'Javi se, odgovaram brzo.' };
+    return {
+      isDesktop: !isMobile, isMobile, menuVisible: isMobile && menu,
+      menuLabel: menu ? 'Zatvori' : 'Meni',
+      toggleMenu: () => this.setState({ menu: !menu }),
+      nav, chip, show,
+      isHome: page === 'home', isAbout: page === 'about', isGallery: page === 'gallery', isContact: page === 'contact',
+      goHome: () => this.go('home'), goAbout: () => this.go('about'), goGallery: () => this.go('gallery'), goContact: () => this.go('contact'),
+      fAll: setF('all'), fAnimals: setF('animals'), fDolls: setF('dolls'), fBaby: setF('baby'),
+      form, onName: setField('name'), onEmail: setField('email'), onMsg: setField('msg'),
+      error, sent, notSent: !sent,
+      submit: () => {
+        const f = this.state.form;
+        if (!f.name.trim() || !f.email.trim() || !f.msg.trim()) return this.setState({ error: true });
+        this.setState({ sent: true, error: false });
+      },
+      reset: () => this.setState({ sent: false, form: { name: '', email: '', msg: '' } }),
+      videoIdle: !this.state.video, videoPlaying: !!this.state.video,
+      playVideo: () => this.setState({ video: true }),
+      igUrl: this.props.instagramUrl || 'https://www.instagram.com/',
+      showBand: page !== 'contact', bandKicker: band.k, bandTitle: band.t
+    };
+  }
+}
+</script>
+</body>
+</html>
