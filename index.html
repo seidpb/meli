@@ -86,9 +86,9 @@
         </div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(32px,5vw,64px);align-items:center;padding:clamp(56px,7vw,96px) clamp(20px,5.5vw,72px);max-width:1280px;margin:0 auto;box-sizing:border-box">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(32px,5vw,64px);align-items:center;padding:clamp(56px,7vw,96px) clamp(20px,5.5vw,72px);max-width:1280px;margin:0 auto;box-sizing:border-box;grid-template-columns:{{ aboutCols }}">
       <div style="width:min(340px,100%);aspect-ratio:1/1;justify-self:center"><img src="./slike/p2-c-about.webp" alt="Portret autorke" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
-      <div style="display:flex;flex-direction:column;gap:20px;grid-column:span 2;min-width:min(100%,300px)">
+      <div style="display:flex;flex-direction:column;gap:20px;min-width:0">
         <div style="font-family:'Caveat',cursive;font-size:30px;color:#c2507a">zdravo, ja sam Melita</div>
         <h2 style="margin:0;font-weight:700;font-size:clamp(32px,3.8vw,48px);line-height:1.08;letter-spacing:-.02em">Od Starog Priboja do malenih ručica širom sveta.</h2>
         <p style="margin:0;font-size:18px;line-height:1.65;color:#4a5670;max-width:600px">Pletem od detinjstva, a među prvima u Srbiji sam savladala amigurumi tehniku. Danas svaku lutku pravim od neškodljivih materijala, za bebe i malu decu.</p>
@@ -147,7 +147,7 @@
   <sc-if value="{{ isGallery }}" hint-placeholder-val="{{ false }}">
     <div style="max-width:1280px;margin:0 auto;box-sizing:border-box;padding:clamp(24px,4vw,48px) clamp(20px,5.5vw,72px) clamp(56px,7vw,96px);display:flex;flex-direction:column;gap:clamp(28px,4vw,48px)">
       <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
-        <div style="display:flex;flex-direction:column;gap:6px"><div style="font-family:'Caveat',cursive;font-size:clamp(24px,2.4vw,30px);color:#c2507a">upoznajte ekipu</div><h1 style="margin:0;font-weight:700;font-size:clamp(44px,6.2vw,80px);line-height:1;letter-spacing:-.03em">Galerija</h1></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="font-family:'Caveat',cursive;font-size:clamp(24px,2.4vw,30px);color:#c2507a">upoznajte ekipu</div><h2 style="margin:0;font-weight:700;font-size:clamp(36px,4vw,52px);line-height:1;letter-spacing:-.02em">Galerija</h2></div>
         <div style="display:flex;gap:10px;font-size:15px;font-weight:600;flex-wrap:wrap">
           <button onClick="{{ fAll }}" style="border:2px dashed {{ chip.all.bd }};background:{{ chip.all.bg }};color:{{ chip.all.fg }};padding:9px 18px;border-radius:999px;font-weight:600;cursor:pointer;min-height:44px">Sve</button>
           <button onClick="{{ fAnimals }}" style="border:2px dashed {{ chip.animals.bd }};background:{{ chip.animals.bg }};color:{{ chip.animals.fg }};padding:9px 18px;border-radius:999px;font-weight:600;cursor:pointer;min-height:44px">Životinje</button>
@@ -269,6 +269,7 @@ class Component extends DCLogic {
       playVideo: () => this.setState({ video: true }),
       igUrl: this.props.instagramUrl || 'https://www.instagram.com/',
       lbOpen: !!this.state.lb, lbSrc: this.state.lb || '', closeLb: e => { e && e.stopPropagation && e.stopPropagation(); this.setState({ lb: null }); },
+      aboutCols: isMobile ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,2fr)',
       showBand: page !== 'contact', bandKicker: band.k, bandTitle: band.t
     };
   }
